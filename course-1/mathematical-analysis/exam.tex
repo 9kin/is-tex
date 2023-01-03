@@ -1,0 +1,33 @@
+\documentclass[12pt,a4paper,oneside]{article}
+\usepackage[russian]{../../header}
+
+\contest
+{Матанализ 1 семестр Экзамен}%
+{ИТМО}%
+{Санкт-Петербург}%
+
+\title{Матанализ 1 семестр Экзамен}
+\author{Студенты ИС'а}
+\date{время последней сборки: \today \\ \currenttime}
+
+\begin{document}
+
+
+\maketitle
+
+\epigraph{
+	``Спасибо всем за вклад в написание билетов''.
+}
+
+\tableofcontents
+
+\pagebreak
+
+\foreach \i in {1,...,40} {
+	\edef\FileName{question\i}%
+	\IfFileExists{\FileName}{%
+		\input{\FileName}%
+	}
+}
+
+\end{document}

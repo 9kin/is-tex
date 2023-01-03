@@ -1,0 +1,31 @@
+\documentclass[12pt,a4paper,oneside]{article}
+\usepackage[russian]{../../header}
+
+\contest
+{Линейная алгебра 1 семестр Экзамен}%
+{ИТМО}%
+{Санкт-Петербург}%
+
+\title{Линейная алгебра 1 семестр Экзамен}
+\author{Студенты ИС'а}
+\date{время последней сборки: \today \\ \currenttime}
+
+\begin{document}
+
+
+\maketitle
+
+\epigraph{
+	``Спасибо всем за вклад в написание билетов''.
+}
+
+\tableofcontents
+
+\foreach \i in {1,...,26} {
+	\edef\FileName{question\i}%
+	\IfFileExists{\FileName}{%
+		\input{\FileName}%
+	}
+}
+
+\end{document}
