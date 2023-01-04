@@ -34,7 +34,7 @@ def upload_file(file_path):
 
 
 def comment(body):
-    requests.post(f'https://api.github.com/repos/{OWNER}/{REPO}/issues/2/comments', headers={
+    requests.post(f'https://api.github.com/repos/{OWNER}/{REPO}/issues/{PULL_REQUEST_NUMBER}/comments', headers={
         "Accept": "application/vnd.github+json",
         "Authorization": f"Bearer {gh_token}",
         "X-GitHub-Api-Version": "2022-11-28"},
@@ -47,7 +47,8 @@ system(f'rm -rf {REPO}_pull')
 system(f'git clone {REPO_URL}')
 system(f'cp -R {REPO} {REPO}_pull')
 chdir(f'{REPO}_pull')
-system(f'git fetch origin pull/{PULL_REQUEST_NUMBER}/head:MASTER')  # https://stackoverflow.com/a/30584951
+system(f'git fetch origin pull/{PULL_REQUEST_NUMBER}/head:test')  # https://stackoverflow.com/a/30584951
+system('git checkout test')
 chdir(f'..')
 
 dependencies = {
@@ -65,16 +66,18 @@ for obj in requests.get(f'https://api.github.com/repos/{OWNER}/{REPO}/pulls/{PUL
             f'latexdiff {REPO}/{file_path} {REPO}_pull/{file_path} > tmp')
         system(f'cat tmp > {REPO}/{file_path}')
         tex_files.add(dependencies[file_path])
-
 chdir(REPO)
 urls = []
-for base in tex_files:
+for path in tex_files:
+    path = Path(path)
+    chdir(path.parent)
+    file = path.name
     system(
-        f'latexdiff {base} {base} > tmp')
-    system(f'cat tmp > {base}')
+        f'latexdiff {file} {file} > tmp')
+    system(f'cat tmp > {file}')
     for _ in range(2):
-        system(f'pdflatex -synctex=1 -interaction=nonstopmode --shell-escape {base}')
-    name = Path(base).with_suffix('')
+        system(f'pdflatex -synctex=1 -interaction=nonstopmode --shell-escape {file}')
+    name = Path(file).with_suffix('')
     urls.append(f'[{name}.pdf]({upload_file(f"{name}.pdf")})')
 
 comment('Изменённые файлы:' + ','.join(urls))
