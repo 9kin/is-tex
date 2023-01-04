@@ -1,4 +1,4 @@
-# usage : uvicorn deploy_server:app --reload --host 0.0.0.0
+# usage : uvicorn deploy_server:app --host 0.0.0.0
 from fastapi import FastAPI, HTTPException
 from os import system
 
