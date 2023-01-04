@@ -7,7 +7,7 @@ PY = 'python3.10'
 HASH = ''
 
 def validate(owner, repo, hash):
-    return owner == '9kin' and repo == 'is_tex' and hash == HASH
+    return owner == '9kin' and repo == 'is-tex' and hash == HASH
 
 @app.get("/pull/{owner}/{repo}/{pull_request_number}")
 def pull(owner: str, repo: str, pull_request_number: int, hash: str):

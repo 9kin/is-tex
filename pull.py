@@ -47,11 +47,11 @@ system(f'rm -rf {REPO}_pull')
 system(f'git clone {REPO_URL}')
 system(f'cp -R {REPO} {REPO}_pull')
 chdir(f'{REPO}_pull')
-system(f'git pull origin pull/{PULL_REQUEST_NUMBER}/head')
+system(f'git fetch origin pull/{PULL_REQUEST_NUMBER}/head:MASTER')  # https://stackoverflow.com/a/30584951
 chdir(f'..')
 
 dependencies = {
-    '.tex': 'base.tex'
+    'course-1/linear-algebra/question1.tex': 'course-1/linear-algebra/exam.tex'
 }
 
 tex_files = set()
@@ -78,4 +78,3 @@ for base in tex_files:
     urls.append(f'[{name}.pdf]({upload_file(f"{name}.pdf")})')
 
 comment('Изменённые файлы:' + ','.join(urls))
-
