@@ -19,7 +19,7 @@
 
 [LaTeX](https://ru.wikipedia.org/wiki/LaTeX "LaTeX")
 
-Рекомендую использовать редактор [texstudio](https://ru.wikipedia.org/wiki/LaTeX "https://www.texstudio.org/").
+Рекомендую использовать редактор [texstudio](https://www.texstudio.org/ "texstudio").
 
 Как установить tex? Чтобы у вас точно работала надо установить что-то по типу latex-full. В зависимости от OS будет отличаться установка. У меня на малинке друга устанавливалось минут 15.
 
