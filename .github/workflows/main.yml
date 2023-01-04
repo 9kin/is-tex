@@ -8,4 +8,4 @@ jobs:
     steps:
     - name: Post diff
       run: |
-          curl --url https://i9kin.avevad.com/pull/9kin/conspects/${{ github.event.pull_request.number }}?hash=${{ secrets.cihash }} 
+          curl --url https://i9kin.avevad.com/pull/9kin/is-tex/${{ github.event.pull_request.number }}?hash=${{ secrets.cihash }} 
