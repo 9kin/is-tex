@@ -4,6 +4,7 @@ import requests
 import ntpath
 import mimetypes
 from pathlib import Path
+from re import fullmatch
 
 gh_token = ''
 catbox_token = ''
@@ -51,8 +52,10 @@ system(f'git fetch origin pull/{PULL_REQUEST_NUMBER}/head:test')  # https://stac
 system('git checkout test')
 chdir(f'..')
 
+# https://3widgets.com/
 dependencies = {
-    'course-1/linear-algebra/question1.tex': 'course-1/linear-algebra/exam.tex'
+    'course-1/linear-algebra/question([1-9]|[12][0-9]|3[0-4]).tex': 'course-1/linear-algebra/exam.tex',
+    'course-1/mathematical-analysis/question([1-9]|[1-3][0-9]|40).tex': 'course-1/mathematical-analysis/exam.tex'
 }
 
 tex_files = set()
@@ -61,11 +64,21 @@ for obj in requests.get(f'https://api.github.com/repos/{OWNER}/{REPO}/pulls/{PUL
     "Authorization": f"Bearer {gh_token}",
     "X-GitHub-Api-Version": "2022-11-28"}).json():
     file_path = obj['filename']
-    if file_path in dependencies:
+
+
+    def get(file_path):
+        for pattern in dependencies:
+            if fullmatch(pattern, file_path) is not None:
+                return dependencies[pattern]
+        return None
+
+
+    dependence = get(file_path)
+    if dependence:
         system(
             f'latexdiff {REPO}/{file_path} {REPO}_pull/{file_path} > tmp')
         system(f'cat tmp > {REPO}/{file_path}')
-        tex_files.add(dependencies[file_path])
+        tex_files.add(dependence)
 chdir(REPO)
 urls = []
 for path in tex_files:
