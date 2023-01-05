@@ -831,15 +831,8 @@
 
 % https://tex.stackexchange.com/questions/219749/how-to-left-align-the-section-title-in-latex
 % left align the section title in latex
-% https://tex.stackexchange.com/a/584839
-
-\usepackage{titlesec}
-\titleformat{\chapter}{\normalfont\huge\bfseries}{\thechapter .}{3.5mm}{}
-\titlespacing*{\chapter}{3.5mm}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
-\titleformat{\section}{\normalfont\Large\bfseries}{\thesection .}{3.5mm}{}
-\titlespacing*{\section}{3.5mm}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
-\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection .}{3.5mm}{}
-\titlespacing*{\subsection}{3.5mm}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\usepackage{sectsty}
+\sectionfont{\bfseries\Large\raggedright}
 
 % https://tex.stackexchange.com/questions/204998/double-struck-zero-and-one
 % \mathbb{0} or 1
