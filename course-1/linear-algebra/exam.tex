@@ -1,5 +1,6 @@
 \documentclass[12pt,a4paper,oneside]{article}
 \usepackage[russian]{../../header}
+\usepackage{lmodern}
 
 \contest
 {Линейная алгебра 1 семестр Экзамен}%
@@ -23,11 +24,11 @@
 
 \pagebreak
 
-\foreach \i in {1,...,26} {
-	\edef\FileName{question\i}%
-	\IfFileExists{\FileName}{%
-		\input{\FileName}%
+\foreach \i in {1,...,34} {
+		\edef\FileName{question\i}%
+		\IfFileExists{\FileName}{%
+			\input{\FileName}%
+		}
 	}
-}
 
 \end{document}

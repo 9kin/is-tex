@@ -1,3 +1,49 @@
 \section{Преобразование базиса и координат.}
+Преобразование базиса и координат обозначается $L^n$ - ЛП с размерностью n. \\
+Всякий набор линейно-независимых $e_1, e_2, ..., e_n$ - базис $L^n$ \\
+Рассмотрим два набора $\{ e_i \}^n_{i = 1}$ $\{ e_i^{'} \}^n_{i = 1}$ \\
+$
+    \forall x \in L^n \text{ (в том числе $e_i^'$) существует единственное разложение по базису }{e_i} \\
+    (1)
+    \begin{cases}
+        e_1^{'} = a_11 e_1 + a_12 e_2 + ... + a_1n e_n \\
+        e_2^{'} = a_21 e_1 + a_22 e_2 + ... + a_2n e_n \\
+        .                                              \\
+        .                                              \\
+        .                                              \\
+        e_n^{'} = a_n1 e_1 + a_n2 e_2 + ... + a_nn e_n \\
+    \end{cases} \\
+    \left(
+    \begin{array}{lr}
+            e_1^{'} \\
+            .       \\
+            .       \\
+            .       \\
+            e_n^{'}
+        \end{array}
+    \right)
+    = B'(матрица) \\
 
+    A = \{ a_ij \}_{_{i = 1..n}^{j = 1...n}} \\
+    |A| = \Delta \neq 0 \\
+    (\text{линейно-независимые } e'_i) \\
+
+    \text{Тогда (1) } \Leftrightarrow A \cdot B = B'
+    \text{, т.к. } \Delta \neq 0 \exists A^{-1}: \\
+    A^{-1} \cdot A \cdot B = B' \cdot A^{-1} \\
+    B = A^{-1} \cdot B \\
+    e'_i \rightarrow e_j \\
+
+    B = A^{-1}B' \Leftrightarrow 
+    \left\{
+        \begin{array}{lr}
+            e_1 = \frac{A_11}{\Delta}e'_1 + \frac{A_21}{\Delta}e'_2 + ... \frac{A_n1}{\Delta}e'_n \\
+            . \\
+            . \\
+            . \\
+            e_n = \frac{A_1n}{\Delta}e'_1 + \frac{A_2n}{\Delta}e'_2 + ... \frac{A_nn}{\Delta}e'_n \\
+    \right.
+
+
+$
 \pagebreak
