@@ -13,12 +13,13 @@ def compile(directory, pdf_output, repeat=1):
     chdir("../..")
     (Path(directory) / "exam.pdf").rename(pdf_output)
 
-
+args = sys.argv[1:]
 repeat = 1
-if 't' in sys.argv:
+if 't' in args:
     repeat = 2
-if len(sys.argv) == 1 or 'linal' in sys.argv:
+    args = list(filter(lambda x : x != 't', args))
+if len(args) == 0 or 'linal' in args:
     compile("course-1/linear-algebra", "linear-algebra-exam.pdf", repeat)
-if len(sys.argv) == 1 or 'matan' in sys.argv:
+if len(args) == 0 or 'matan' in args:
     compile("course-1/mathematical-analysis", "mathematical-analysis.pdf", repeat)
 
