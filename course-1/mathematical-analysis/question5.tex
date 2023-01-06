@@ -1,3 +1,55 @@
 \section{Предельный переход в неравенствах. Теорема о двух милиционерах.}
 
+\subsection{Теорема о предельном переходе в неравенстве для последовательностей}
+
+Пусть $\LIMNI a_n = A, \LIMNI b_n = B$ и $\forall N > N_0 : a_n \le b_n$ тогда $A \le B$
+
+Доказательство:
+
+От противного. Предположим, что $A > B$
+
+Пусть $N_1(\varepsilon), N_2(\varepsilon)$ номера с которых последовательности $a_n$ и $b_n$ соответственно попадают в окрестность их пределов.
+
+Пусть $N = max\{N_0, N_1(\varepsilon), N_2(\varepsilon)\}$ . Что-бы $\forall n > N$ выполнялись сразу три свойства: $a_b \le b_n$ и члены последовательности находятся в $\varepsilon$ окрестности своих пределов.
+
+Возьмём $\varepsilon = \dfrac{A - B}{2}$. Эта величина положительна по предположению.
+
+$\begin{cases}
+a_n \le b_n \\
+|a_n - A| < \dfrac{A - B}{2} \Rightarrow A - \dfrac{A - B}{2} < a_n < A + \dfrac{A - B}{2} \Rightarrow \dfrac{A+B}{2} < a_b < \dfrac{3A - B}{2} \\
+|b_n - B| < \dfrac{A - B}{2} \Rightarrow B - \dfrac{A - B}{2}< a_n < B + \dfrac{A - B}{2} \Rightarrow \dfrac{3B - A}{2} < b_n < \dfrac{A+B}{2} \\
+\end{cases}$
+
+приходим к противоречию:
+
+$$\dfrac{A+B}{2} < a_b \le b_n < \dfrac{A+B}{2}$$ 
+
+\subsection{Теорема о промежуточной последовательности}
+
+Пуст $\LIMNI a_n = A, \LIMNI c_n = A$
+
+Тогда если есть некоторая последовательность $b_n$ для которой верно $\forall n > N_0 : a_n \le b_n \le c_n$ тогда. У последовательности существует предел и он равен $A$
+
+Доказательство:
+
+Для любого $\varepsilon > 0$ опять возьмём  $N=max\{N_0, N_1(\varepsilon, \varepsilon)\}$.
+
+%Максимальное значение, которое может принимать $a_n$ и $c_n$, и следовательно $b_n$, меньше $A + \varepsilon$, а минимальное больше чем $A - \varepsilon$. Получаем, что все $b_n$ находятся в $U_{{\varepsilon }}(A)$, ну и следовательно $\LIMNI b_n = A$ 
+
+Из неравенства $a_n \le b_n \le c_n$ получаем неравенство $a_n-A \leqslant b_n -A \leqslant c_n-A$. Условие $\LIMNI a_n =A= \LIMNI c_n $ позволяет сказать, что для любого $\varepsilon > 0$ существует окрестность $\displaystyle U_{a}$, в которой верны неравенства $\left|a_n -A\right|<\varepsilon$  и $\left|c_n-A\right|<\varepsilon$. Из изложенных выше неравенств следует, что $\left|b_n-A\right|<\varepsilon$  при $x\in U_{a}$, что удовлетворяет определению предела, то есть $\LIMNI b_n=A$.
+
+\subsection{Теорема о двух милиционерах}
+
+Эта теорема выше, но для функций.
+
+Если функция $y=f(x)$ такая, что $\varphi (x)\leqslant f(x)\leqslant \psi (x)$ для всех $x$ в некоторой окрестности точки $a$, причём функции $\varphi (x)$ и $\psi(x)$ имеют одинаковый предел при $x\to a$, то существует предел функции $y=f(x)$ при $x\to a$, равный этому же значению, то есть
+
+$$\varphi (x)=\lim _{{x\to a}}\psi (x)=A\Rightarrow \lim _{{x\to a}}f(x)=A$$
+
+Доказательство:
+
+Из неравенства $\varphi (x)\leqslant f(x)\leqslant \psi (x)$ получаем неравенство $\varphi (x)-A\leqslant f(x)-A\leqslant \psi (x)-A$. Условие $\lim \limits _{{x\to a}}\varphi (x)=A=\lim \limits _{{x\to a}}\psi (x)$ позволяет сказать, что для любого $\varepsilon > 0$ существует окрестность $\displaystyle U_{a}$, в которой верны неравенства $\left|\varphi (x)-A\right|<\varepsilon$  и $\left|\psi (x)-A\right|<\varepsilon$. Из изложенных выше неравенств следует, что $\left|f(x)-A\right|<\varepsilon$  при $x\in U_{a}$, что удовлетворяет определению предела, то есть $\lim \limits _{{x\to a}}f(x)=A$.
+
+В теоремах мы использовали очевидный факт, что если $a \le b \le c$ и $|a| < \epsilon$ и $|c| < \epsilon$, то это тоже самое, что и $a, c \in (-\epsilon, +\epsilon)$, а следовательно $b \in (-\epsilon, +\epsilon) \Rightarrow |b| < \epsilon$
+
 \pagebreak
