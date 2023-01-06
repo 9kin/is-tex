@@ -1,3 +1,78 @@
 \section{Вещественная ось. Бесконечность. Окрестность точки.}
 
+Расширенная числовая прямая --- $\overline{\mathbb{R}} = \mathbb{R} \cup \{+\infty ;-\infty \}$
+
+\subsection{Аксиома полноты}
+
+Аксиома полноты или непрерывности множества вещественных чисел состоит в следующем.
+Если $X$ и $Y$ — непустые подмножества $R$, обладающие тем свойством, что для любых элементов $x \in X$ и $y \in Y$ выполнено $x \le y$, то существует такое $c \in R$, что $x \le c \le y$ для любых элементов $x \in X$ и $y \in Y$ .
+
+Аксиомы:
+
+\begin{enumerate}
+	\item $\forall x \in  \mathbb{R} : -\infty < x < +\infty$
+	\item $\forall x \in  \mathbb{R} \cup \{+\infty \} : x + (+\infty)  = +\infty$
+	
+	Но, например, $-\infty + (+\infty)$ --- не определено.
+	
+	\item $\forall x \in  \mathbb{R} \cup \{-\infty \} : x + (-\infty) = -\infty$
+	
+	\item $\forall x \in \left( \mathbb{R} \cup \{+\infty, -\infty\}\right) \setminus \{0\} : x \cdot (\pm \infty) = \begin{cases}
+		\pm \infty, x > 0 \lor x = + \infty \\
+		\mp \infty, x < 0 \lor x = -\infty
+	\end{cases}$
+	
+	\item $x \in R : \dfrac{x}{\infty} = 0$
+	
+	\item $\forall x \in \left( \mathbb{R} \cup \{\infty\} \right) \ \{0\} : \dfrac{x}{0} = \infty$
+
+	\item $\forall x, y \in \overline{\mathbb{R}}: x + y = y + x, xy = yx$
+	
+\end{enumerate}
+
+\subsection{Грани}
+
+Верхняя грань, числового множества$X$ — число $a$ такое, что $\forall x\in X\Rightarrow x\leqslant a$.
+
+Аналогично определяется нижняя грань.
+
+$\sup E$ --- точная верхняя грань последовательности $\min \{\text{мн-во вернхних граней}\}$
+
+$\inf E$ --- точная нижняя грань последовательности $\max \{\text{мн-во нижних граней}\}$
+
+Супремум не всегда предел. Например, последовательность $x_n = \{-1, 1, -1, \dots \}; \sup x_n = 1; \inf x_n - 1$, но предела нет.
+
+Например, супремумом множества отрицательных чисел является $0$. Взять меньше мы не можем, т.к супремум станет отрицательным, и среди всех отрицательных чисел можно найти такое, что супремум перестанет им быть. 
+
+Отсюда следует красивое определение. $\sup E \DEF S \in R : (\forall x \in E : x \le S) \land (\forall \alpha < S \exists x \in E : x \ge \alpha)$ и аналогично $\inf E \DEF I \in R : (\forall x \in E : I \le x) \land (\forall \alpha > I \exists x \in E : x < \alpha)$
+
+\subsection{Окрестность. Предельная точка}
+
+Окрестность точки $a \in \overline{\mathbb{R}}$
+
+$$U_{{\varepsilon }}(a) \DEF \begin{cases}
+\left({\dfrac {1}{\varepsilon }},+\infty \right], a = +\infty \\
+\left[-\infty ,-{\dfrac {1}{\varepsilon }}\right), a = - \infty \\
+(a-\varepsilon ,a+\varepsilon ), \t{иначе}
+\end{cases}
+$$
+
+Выколотая окрестность $\overset{\circ}{U_{{\varepsilon }}(a)} = U_{{\varepsilon }}(a) \setminus \{a \}$
+
+Свойства:
+
+\begin{enumerate}
+	\item $\{a\} \cup  U_{{\varepsilon }}(a) = a$, а так-же $\{a\} \cup \overset{\circ}{U_{{\varepsilon }}(a)} = \emptyset$
+	
+	\item $U_{{\varepsilon }}(a) \cup U_{{\alpha }}(a) = \begin{cases} 
+	U_{{\varepsilon }}(a), 	\varepsilon \le \alpha \\
+	U_{{\alpha }}(a), 	\alpha < \varepsilon
+\end{cases}$
+	
+	\item Для двух разных точек можно выбрать такие две окрестности ($\varepsilon$ и $\alpha$), что их пересечение будет являться пустым множеством. 
+	
+	Достаточно, что-бы $\varepsilon + \alpha < |a - b|$
+	
+\end{enumerate}
+
 \pagebreak
